@@ -1,5 +1,6 @@
 
 import time
+import enum
 import datetime
 from meterbus.api.frame import frame
 
@@ -67,6 +68,12 @@ class application(object):
         if not self.ACK():
             print('FAILED')
             return False
+
+
+
+
+
+
 
     def readData(self,nodeId):
         print('ddd',nodeId)

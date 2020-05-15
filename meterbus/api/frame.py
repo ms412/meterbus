@@ -4,6 +4,7 @@ import binascii
 import datetime
 from datetime import datetime
 #from meterbus.api.bitoperation import bitoperation
+from meterbus.api.dataframe import helper
 
 class frame(object):
 
@@ -119,8 +120,12 @@ class frame(object):
         _result['Medium'] = _frame2[10]
         _result['Status'] = self._statusByte(_frame2[11])
         #self._statusByte(_frame2[11])
-        _result['Signatur'] = binascii.hexlify(bytearray(_frame2[12:14]))
+        _result['Signatur'] = binascii.hexlify(bytearray(_frame2[12:15]))
         _result['Data'] = _frame2[15:-2]
+
+        x =helper()
+        xx = x._dataInformationBlock(_frame2[15:-2])
+        print(xx)
 
         return _result
 
